@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Rkord</title>
+</head>
+<body class="container">
+<h1>Add a Note</h1>
+<form class="row" action="/note" method="post">
+    <fieldset>
+        <div class="mb-3">
+            <label for="markdownText" class="form-label">Markdown Supported</label>
+            <textarea class="form-control" id="markdownText" name="markdownText" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>
+
+<h1>Existing Notes</h1>
+<fieldset>
+    <div class="mb-3" th:each="msg : ${userNotes}">
+        <div th:utext="${msg.message}" class="alert alert-primary"></div>
+    </div>
+</fieldset>
+</body>
+</html>
